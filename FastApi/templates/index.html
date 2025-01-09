@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FastAPI App</title>
+</head>
+<body>
+    <h1>Главная страница</h1>
+    <form action="/add-text/" method="post">
+        <textarea name="text"></textarea><br>
+        <button type="submit">Сохранить</button>
+    </form>
+    <hr>
+    <h2>Список текстов</h2>
+    <ul>
+        {% for text in texts %}
+            <li>{{ text.text }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
