@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django App</title>
+</head>
+<body>
+    <h1>Главная страница</h1>
+    <form action="{% url 'save_text' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить</button>
+    </form>
+    <hr>
+    <h2>Список текстов</h2>
+    <ul>
+        {% for text in texts %}
+        <li>
+    {{ text }} |
+    <a href="{% url 'delete_text' text.pk %}">Удалить</a>
+       </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
